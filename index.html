@@ -16,30 +16,7 @@
         <script src="js/bfb_bootstrap.js"></script>
 
 
-        <!-- initialization 
-        <script type="text/javascript">
-            document.addEventListener("webworksready", function(){
-                initApp();
-            });
-
-            bb.init({
-                    actionBarDark: true,
-                    controlsDark: true,
-                    listsDark: false,
-
-                    // Fires "before" styling is applied and "before" the screen is inserted in the DOM
-                    onscreenready: function(element, id) {
-                                   },
-
-                    // Fires "after" styling is applied and "after" the screen is inserted in the DOM
-                    ondomready: function(element, id) {
-                                    if (id === 'main') {
-                                        welcome();
-                                    }
-                                   
-                                }
-                    });
-        </script>-->
+        <!-- initialization -->
         <script>
             document.addEventListener("webworksready", function(e){
                 var config = {
@@ -47,24 +24,25 @@
                     controlsDark: true,
                     listsDark: false
                 };
-                
+
                 config.onscreenready = function(element, id) {
                 // aqui podemos adicionar elementos no dom 
                     console.log("screen: " , element)
                 };
                 config.ondomready = function(element, id, params) {
-                    if (id === 'mediaSemestralScreen') {
+                    if (id === 'mediaAnualScreen') {
                         console.log("dom: " , element);
                         // o seu element equivale ao document, ex:.
-                        var div = element.getElementById("mediascreen");
                     } 
                     
                 }
                 bb.init(config);
-                bb.pushScreen("main.html", "main");   
+                bb.pushScreen("mediaAnual.html", "mediaAnualScreen");   
+                
             },false);
    
         </script>
+        <script src="js/script-all.js"></script>
 
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="css/style-all.css" rel="stylesheet" media="screen"> 
@@ -72,7 +50,7 @@
     <body style="background-color: #181818"> 
      <!-- <script src="js/jquery.js"></script>
       <script src="js/bootstrap.min.js"></script>
-      <script src="js/script-all.js"></script>
+      -->
       
     </body>
 </html>
