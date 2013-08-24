@@ -1,0 +1,65 @@
+<!--
+ Copyright 2013 Research In Motion Limited.
+
+ Licensed under the Apache License, Version 2.0 (the "License");  you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software  distributed under the License is distributed on an "AS IS" BASIS,  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and  limitations under the License.
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+
+<div style="background-color: #181818;" data-bb-type="screen" data-bb-effect="slide-down"  data-bb-scroll-effect="on" class="allscreen">
+
+
+<!--TELA PRINCIPAL-->
+<div id="main-screen">
+    <div id="navbar-title">
+        <img src="img/title.png" alt="avarate" id="logo"/>
+    </div>
+    <div id="content">
+
+        <div id="main-menu-anual">
+          <ul class="nav nav-tabs" id="myTab">
+            <li>
+                <img src="img/anual.png" alt="anual" width="40">
+                Anual
+                <br/>
+            </li>
+          </ul>
+          <input type="number" id="mediaAnual" value="6" class="main-manu-input"/>
+          <div onclick="pushScreenModulo('mediaAnual', document.getElementById('mediaAnual').value);" id="avancarAnual"><img src="img/ic_previous.png"></div>
+        </div>
+        <div id="main-menu-semestral">
+          <ul class="nav nav-tabs" id="myTab">
+            <li>
+                <img src="img/semestral.png" alt="anual" width="40">
+                Semestral
+                <br/>
+            </li>
+          </ul>
+          <input type="number" id="mediaSemestral" value="6" class="main-manu-input"/>
+          <div onclick="bb.pushScreen('mediaSemestral.html', 'mediaSemestralScreen');" id="avancarSemestral"><img src="img/ic_next.png"></div>
+        </div>
+        <div class="menu-guide">
+			<h2>Escolha um modulo e insira a média mínima.</h2>
+		</div>
+	</div>
+
+</div>
+<!-- FIM DA TELA PRINCIPAL-->
+
+
+<div data-bb-type="action-bar">
+
+
+	<!-- buttons -->
+	<div onclick="bbm.updateMessage();"  id="btnBBM" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/bbm.png">BMB</div>
+  <div onclick="document.getElementById('main-screen').refresh();"  id="btnRefresh" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/spinner.png">Atualizar</div>
+
+</div>
+
+</div>

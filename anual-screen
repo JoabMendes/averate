@@ -1,0 +1,33 @@
+			<ul class="nav nav-tabs" id="myTab">
+    			<li>
+    			  	<img src="img/anual.png" alt="anual" width="30">
+    			  	Anual
+    			 </li>
+    		</ul>
+    		<div id="input-nota">
+				<input type="text" id="Nota1" required="true" placeholder="Nota 1"/>
+			</div>
+			<div id="input-peso">
+				<input type="number" id="Peso1" required="true"/>
+			</div>
+			<br/>
+			<div id="input-nota">
+				<input type="text" id="Nota2" required="true" placeholder="Nota 2"/>
+			</div>
+			<div id="input-peso">
+				<input type="number" id="Peso2" required="true"/>
+			</div>
+			<br/>
+			<div id="input-nota">
+				<input type="text" id="Nota3" required="true" placeholder="Nota 3"/>
+			</div>
+			<div id="input-peso">
+				<input type="number" id="Peso3" required="true"/>
+			</div>
+			<br/>
+			<div id="input-nota">
+				<input type="text" id="Nota4" required="true" placeholder="Nota 4"/>
+			</div>
+			<div id="input-peso">
+				<input type="number" id="Peso4" required="true"/>
+			</div>

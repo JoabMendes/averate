@@ -1,0 +1,36 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        version="1.0.0"
+        id="bfb2">
+    <name>averate</name> 
+    <content src="local:///index.html" />
+    <author rim:copyright="2013"
+            href="http://twitter.com/JhoabMendez"
+            email = "joab.mendes.r2d2@gmail.com">Joab Mendesa</author>
+    <description>O aplicativo gerencia notas escolares e faz cálculo de medias arimeticas/ponderadas e necessidade relativa de pontos</description>>
+    <access uri="*" subdomains="true" />
+
+    <icon src="img/icon.png"/>
+    <rim:splash src="splash-1280x768.png"/>
+    <rim:splash src="splash-720x720.png"/>    
+    
+    <feature id="blackberry.app">
+      <param name="orientation" value="portrait" />
+    </feature>
+
+    <feature id="blackberry.ui.toast" />
+    <feature id="blackberry.bbm.platform" />
+    <feature id="blackberry.invoke" />
+    <feature id="blackberry.invoke.card" />
+    <feature id="blackberry.ui.cover" />
+    <feature id="blackberry.ui.dialog" />
+    
+
+
+    <rim:permissions>
+        <rim:permit>bbm_connect</rim:permit> 
+        <rim:permit>access_shared</rim:permit> 
+    </rim:permissions>
+</widget>

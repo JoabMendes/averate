@@ -1,0 +1,99 @@
+
+
+.allscreen{
+	background: url(../img/background.png);
+}
+
+#navbar-title{
+	width: 80%;
+	height: 100px;
+	background-color: #4c78e8;
+	margin: 80px auto 30px auto;	
+}
+
+#navbar-title img{
+	height: 100px;
+}
+
+#logo{
+	margin-left: 30px;
+}
+
+#content{
+	width: 80%;
+	margin: 50px auto;
+	color: #fff;
+	vertical-align: middle;
+}
+
+#myTab{
+	text-align: center;
+	padding: 20px;
+}
+
+
+#content #myTab li { 
+	text-align: center;
+	display: inline; 
+	width: 100%;
+	border: none;
+	vertical-align: middle;
+	padding-top: 25px;
+}
+
+
+.nav-tabs{
+	border: none;
+	font-weight: bold;
+	font-size: 25pt;
+}
+
+#input-peso{
+	width: 40%; float: right;
+	margin-top: 20px;
+}
+
+#input-nota{
+	width: 50%; float: left;
+	margin-top: 20px;
+}
+
+#main-menu-anual{
+	width: 45%;
+	height: 300px;
+	float: left;
+	background-color: #1f2229; 
+	vertical-align: middle;
+}
+
+#main-menu-semestral{
+	width: 45%;
+	height: 300px;
+	float: right;
+	background-color: #1f2229; 
+	vertical-align: middle;
+}
+
+.menu-guide{
+	width: 80%;
+	margin: 350px auto;
+	color: #76797e;
+	vertical-align: middle;
+	text-align: center;
+	background-color:  #3a4149;
+	position: absolute;
+}
+
+
+
+#content .bb-input-container{
+	width: 70%;
+	margin: auto;
+}
+
+
+#avancarAnual, #avancarSemestral{
+	width: 200px;
+	margin: 20px auto;
+	text-align: center;
+}
