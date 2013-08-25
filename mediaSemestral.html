@@ -12,44 +12,52 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
 
-<div data-bb-type="screen" data-bb-effect="slide-left"  data-bb-scroll-effect="off" class="allscreen" id="mediaSemestralScreen">
-
-<div data-bb-type="menu">
-  <div data-bb-type="menu-item" data-bb-img="images/icons/info.png" data-bb-pin="left">Info</div>
-    <div data-bb-type="menu-item" data-bb-img="images/icons/settings.png" data-bb-pin="right">Settings</div>
-</div>
+<div style="background: url(img/background.png);" data-bb-type="screen" data-bb-effect="slide-left"  data-bb-scroll-effect="off" class="allscreen" id="mediaAnualScreen">
 
 <!--TELA PRINCIPAL-->
-<div id="main-screen">
+<div id="media-semestral-screen">
     <div id="navbar-title">
         <img src="img/title.png" alt="avarate" id="logo"/>
     </div>
     <div id="content">
 
-      <p id="mediascreen"></p>
-
+      <ul class="nav nav-tabs" id="myTabAnual">
+          <li>
+            <img src="img/semestral.png" alt="semestral" style="padding-bottom: 5px; width: 30px;">
+            <label data-bb-type="label">Semestral</label>
+          </li>
+      </ul>
+      <div data-bb-type="row" class="row">
+            <label data-bb-type="label">Pesos</label>
+      </div>
+      <br/>
+      <div data-bb-type="row" class="rowinput">
+            <label data-bb-type="label">1B</label>
+            <input type="number" id="NotaSemestral1" required="true" placeholder="0.0"/>
+            <input type="number" value="1" id="PesoSemestral1" required="true"/>
+      </div>
+      <div data-bb-type="row" class="rowinput">
+          <label data-bb-type="label">2B</label>
+          <input type="number" id="NotaSemestral2" required="true" placeholder="0.0"/>
+          <input type="number" value="1" id="PesoSemestral2" required="true"/>
+      </div>
     </div>
 
 </div>
 <!-- FIM DA TELA PRINCIPAL-->
 
 
-<div data-bb-type="action-bar">
-  <!-- tabs -->
-  <div onclick="toast(this.id);" id="tab1"  data-bb-type="action" data-bb-overflow="true" data-bb-style="tab" data-bb-img="images/icons/tab1.png">Tab 1</div>
+<div data-bb-type="action-bar" data-bb-back-caption="Voltar">
 
-  <!-- tab overflow menu -->
-  <div onclick="toast(this.id);" id="tab2" data-bb-type="action" data-bb-style="tab" data-bb-overflow="true" data-bb-img="images/icons/tab2.png">Overflow 1</div>
-  <div onclick="toast(this.id);" id="tab3" data-bb-type="action" data-bb-style="tab" data-bb-overflow="true" data-bb-img="images/icons/tab3.png">Overflow 2</div>
-
-  <!-- buttons -->
+   <!-- buttons 
+   <div onclick="bb.popScreen();" id="btnBack" data-bb-type="action" data-bb-style="button" data-bb-img="img/ic_previous.png">Voltar</div>-->
   <div onclick="bbm.updateMessage();"  id="btnBBM" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/bbm.png">BMB</div>
   <!--<div onclick="invokeFilePicker();" id="btnShare" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/share.png">Share</div>-->
 
   <!-- button overflow menun -->
   <div onclick="toast(this.id);" id="btnA" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/button2.png">Botao 1</div>
   <div onclick="toast(this.id);" id="btnB" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/button2.png">Botao 2</div>
-  <div onclick="bbm.inviteToDownload();" id="btnB" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/bbm.png">Treta</div>
+  <div onclick="bbm.inviteToDownload();" id="btnB" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/bbm.png">Convidar para Download</div>
 </div>
 
 </div>
