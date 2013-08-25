@@ -12,9 +12,9 @@
     <description>O aplicativo gerencia notas escolares e faz cálculo de medias arimeticas/ponderadas e necessidade relativa de pontos</description>>
     <access uri="*" subdomains="true" />
 
-    <icon src="img/icon.png"/>
-    <rim:splash src="img/splash-1280x768.png"/>
-    <rim:splash src="img/splash-720x720.png"/>    
+    <icon src="images/icon.png"/>
+    <rim:splash src="images/splash-1280x768.png"/>
+    <rim:splash src="images/splash-720x720.png"/>    
     
     <feature id="blackberry.app">
       <param name="orientation" value="portrait" />
