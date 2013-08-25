@@ -21,7 +21,7 @@
 }
 
 #logo{
-	margin-left: 30px;
+	margin-left: 15%;
 }
 
 #content{
@@ -74,17 +74,18 @@
 	display: inline;
 }
 
-#main-menu-anual{
-	width: 45%;
+#main-menu{
+	width: 100%;
 	height: 300px;
-	float: left;
+	padding-top: 20px;
+	margin: auto;
 	background-color: #1f2229; 
 	vertical-align: middle;
 }
 
 #main-menu-semestral{
 	width: 45%;
-	height: 300px;
+	height: 330px;
 	float: right;
 	background-color: #1f2229; 
 	vertical-align: middle;
@@ -92,7 +93,7 @@
 
 .menu-guide{
 	width: 80%;
-	margin: 350px auto;
+	margin: 30px auto;
 	color: #76797e;
 	vertical-align: middle;
 	text-align: center;
@@ -133,6 +134,11 @@
  	width: 100%;
  	height: 40px;
  	vertical-align: middle;
+}
+
+.rowmain{
+	height: 100px;
+	padding: 20px;
 }
 
 .row label{

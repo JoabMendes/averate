@@ -12,7 +12,7 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
 
-<div style="background: url(img/background.png);" data-bb-type="screen" data-bb-effect="slide-down"  data-bb-scroll-effect="on" class="allscreen" id="mainscreen">
+<div style="background: url(img/background.png);" data-bb-type="screen" data-bb-effect="fade"  data-bb-scroll-effect="on" class="allscreen" id="mainscreen">
 
 
 <!--TELA PRINCIPAL-->
@@ -22,29 +22,17 @@
     </div>
     <div id="content">
 
-        <div id="main-menu-anual">
-          <ul class="nav nav-tabs" id="myTab">
-            <li>
-                <img src="img/anual.png" alt="anual" style="padding-bottom: 5px; width: 30px;">
-                <label data-bb-type="label">Anual</label>
-            </li>
-          </ul>
-          <input type="number" id="mediaAnual" value="6" class="main-manu-input"/>
-          <div onclick="pushScreenModulo('mediaAnual', 'mediaAnual');" id="avancarAnual"><img src="img/ic_previous.png"></div>
-        </div>
-        <div id="main-menu-semestral">
-          <ul class="nav nav-tabs" id="myTab">
-            <li>
-                <img src="img/semestral.png" alt="semestral" style="padding-bottom: 5px; width: 30px;">
-                <label data-bb-type="label">Semestral</label>
-            </li>
-          </ul>
-          <input type="number" id="mediaSemestral" value="6" class="main-manu-input"/>
-          <div onclick="pushScreenModulo('mediaSemestral', 'mediaSemestral');" id="avancarSemestral"><img src="img/ic_next.png"></div>
+        <div id="main-menu">
+          <div data-bb-type="row" class="rowmain">
+            <input type="number" id="minmedia" class="main-manu-input" placeholder="Média mínima"/>
+          </div>
+          <div data-bb-type="row" class="rowmain">
+            <input type="number" id="qtdnotas" class="main-manu-input" placeholder="Qtd. de notas"/>
+          </div>
         </div>
         <div class="menu-guide">
-			<h2>Escolha um modulo e insira a média mínima.</h2>
-		</div>
+			     <h2>Insira a média e quantidade de notas.</h2>
+		    </div>
 	</div>
 
 </div>
@@ -54,9 +42,9 @@
 <div data-bb-type="action-bar">
 
 
-	<!-- buttons -->
-	<div onclick="bbm.updateMessage();"  id="btnBBM" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/bbm.png">BMB</div>
+	<!-- buttons   pushScreenModulo('mediaAnual', 'mediaAnual'); -->
   <div onclick="bb.pushScreen('main.html', 'main');"  id="btnRefresh" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/spinner.png">Atualizar</div>
+  <div onclick="pushScreenForm('minmedia', 'qtdnotas');"  id="btnNextmain" data-bb-type="action" data-bb-style="button" data-bb-img="img/ic_next.png">Avançar</div>
 
 </div>
 

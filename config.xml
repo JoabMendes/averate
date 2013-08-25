@@ -13,8 +13,8 @@
     <access uri="*" subdomains="true" />
 
     <icon src="img/icon.png"/>
-    <rim:splash src="splash-1280x768.png"/>
-    <rim:splash src="splash-720x720.png"/>    
+    <rim:splash src="img/splash-1280x768.png"/>
+    <rim:splash src="img/splash-720x720.png"/>    
     
     <feature id="blackberry.app">
       <param name="orientation" value="portrait" />
