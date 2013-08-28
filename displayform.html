@@ -15,32 +15,21 @@
 <div style="background: url(images/background.png);" data-bb-type="screen" data-bb-effect="slide-left"  data-bb-scroll-effect="off" class="allscreen" id="mediaAnualScreen">
 
 <!--TELA PRINCIPAL-->
-<div id="media-semestral-screen">
+<div id="form-screen">
     <div id="navbar-title">
         <img src="images/title.png" alt="avarate" id="logo"/>
     </div>
     <div id="content">
+        <a href="#" class="add" rel=".rowinput" style="display: none;"></a>
+        <div data-bb-type="row" class="rowinput">
+          <label data-bb-type="label" id="label-nota">Nota 1</label><br/>
+          <input type="number"  id="nota" placeholder="0.0"/>
+          <input type="number"  id="peso" placeholder="peso"/>
+        </div>
 
-      <ul class="nav nav-tabs" id="myTabAnual">
-          <li>
-            <img src="images/semestral.png" alt="semestral" style="padding-bottom: 5px; width: 30px;">
-            <label data-bb-type="label">Semestral</label>
-          </li>
-      </ul>
-      <div data-bb-type="row" class="row">
-            <label data-bb-type="label">Pesos</label>
-      </div>
-      <br/>
-      <div data-bb-type="row" class="rowinput">
-            <label data-bb-type="label">1B</label>
-            <input type="number" id="NotaSemestral1" required="true" placeholder="0.0"/>
-            <input type="number" value="1" id="PesoSemestral1" required="true"/>
-      </div>
-      <div data-bb-type="row" class="rowinput">
-          <label data-bb-type="label">2B</label>
-          <input type="number" id="NotaSemestral2" required="true" placeholder="0.0"/>
-          <input type="number" value="1" id="PesoSemestral2" required="true"/>
-      </div>
+        <div data-bb-type="button" onclick="pushScreenForm('minmedia', 'qtdnotas');"
+              style="width: 570px; margin: auto;">Calcular</div>
+        
     </div>
 
 </div>
@@ -51,7 +40,9 @@
 
    <!-- buttons 
    <div onclick="bb.popScreen();" id="btnBack" data-bb-type="action" data-bb-style="button" data-bb-img="images/ic_previous.png">Voltar</div>-->
-  <div onclick="bbm.updateMessage();"  id="btnBBM" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/bbm.png">BMB</div>
+  <div onclick=""  id="btnBBM" data-bb-type="action" data-bb-style="button" data-bb-img="images/ic_del.png">Del Nota</div>
+  <div onclick="editForm('+');"  id="btnBBM" data-bb-type="action" data-bb-style="button" data-bb-img="images/ic_add.png">Add Nota</div>
+ 
   <!--<div onclick="invokeFilePicker();" id="btnShare" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/share.png">Share</div>-->
 
   <!-- button overflow menun -->

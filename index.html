@@ -21,8 +21,8 @@
             document.addEventListener("webworksready", function(e){
                 var config = {
                     actionBarDark: true,
-                    controlsDark: true,
-                    listsDark: false
+                   // controlsDark: true,
+                   // listsDark: false
                 };
 
                 config.onscreenready = function(element, id) {
@@ -34,18 +34,29 @@
                         console.log("dom: " , element);
                         // o seu element equivale ao document, ex:.
                         //Set form here
+                        $('a.add').relCopy(); 
+                        var qtdNotas = localStorage.getItem('qtdnotas');
+                        var i = 1;
+                        while(i < qtdNotas){
+                            $('a.add').trigger('click');
+                            document.getElementById('label-nota'+(i+1)).innerHTML = "Nota "+(i+1);
+                            i++;
+                        }
+                        document.getElementById('nota').id = "nota1";
+                        document.getElementById('peso').id = "peso1";
+
                     } 
                     
                 }
                 bb.init(config);
-                bb.pushScreen("main.html", "main");   
+                bb.pushScreen("displayform.html", "displayform");   
                 
             },false);
    
         </script>
         <script src="js/script-all.js"></script>
-
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/reCopy.js"></script>
         <link href="css/style-all.css" rel="stylesheet" media="screen"> 
     </head>
     <body style="background-color: #181818">
