@@ -12,22 +12,40 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
 
-<div style="background: url(images/background.png);" data-bb-type="screen" data-bb-effect="slide-left"  data-bb-scroll-effect="off" class="allscreen" id="displayform">
+<div style="background: url(images/background.png);" data-bb-type="screen" data-bb-effect="fade"  data-bb-scroll-effect="off" class="allscreen" id="displayresul">
 
 <!--TELA PRINCIPAL-->
-<div id="form-screen">
+<div id="resul-screen">
     <div id="navbar-title">
         <img src="images/title.png" alt="avarate" id="logo"/>
     </div>
     <div id="content">
-        <a href="#" class="add" rel=".rowinput" style="display: none;"></a>
-        <div data-bb-type="row" class="rowinput" id="rownota">
-          <label data-bb-type="label" id="label-nota">Nota 1</label><br/>
-          <input type="number"  id="nota" placeholder="0.0"/>
-          <input type="number"  id="peso" placeholder="peso"/>
-        </div>
-
-        <div data-bb-type="button" onclick="pushScreenResult();" style="width: 570px; margin: auto;">Calcular</div>
+       <h2>Notas</h2>
+       <div id="list-notas">
+         <ul>
+            <li>6.0 — Peso 2</li>
+            <li>7.0 — Peso 3</li>
+            <li>5.0 — Peso 2</li>
+         </ul>
+      </div>
+      <h2>Médias</h2>
+      <div id="list-notas">
+         <ul>
+            <li>Media Ponderada: 6.0</li>
+            <li>Media Aritmética: 6.0</li>
+         </ul>
+      </div>
+      <br/>
+       <div id="list-notas">
+         <ul class="resultado">
+            <li id="aprovado">
+              <img src="images/medal.png" alt="medal" style="vertical-align: middle; width: 45px; margin-right: 20px;">Situação: Aprovado.
+            </li>
+            <li id="reprovado">
+              <img src="images/warning.png" alt="medal" style="vertical-align: middle; width: 50px; margin-right: 10px;">Situação: Reprovação.
+            </li>
+         </ul>
+      </div>
     </div>
 </div>
 <!-- FIM DA TELA PRINCIPAL-->
@@ -36,10 +54,7 @@
 <div data-bb-type="action-bar" data-bb-back-caption="Voltar">
 
    <!-- buttons 
-   <div onclick="bb.popScreen();" id="btnBack" data-bb-type="action" data-bb-style="button" data-bb-img="images/ic_previous.png">Voltar</div>-->
-  <div onclick="editForm('-');"  id="btnBBM" data-bb-type="action" data-bb-style="button" data-bb-img="images/ic_del.png">Del Nota</div>
-  <div onclick="editForm('+');"  id="btnBBM" data-bb-type="action" data-bb-style="button" data-bb-img="images/ic_add.png">Add Nota</div>
- 
+   <div onclick="bb.popScreen();" id="btnBack" data-bb-type="action" data-bb-style="button" data-bb-img="images/ic_previous.png">Voltar</div>
   <!--<div onclick="invokeFilePicker();" id="btnShare" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/share.png">Share</div>-->
 
   <!-- button overflow menun -->

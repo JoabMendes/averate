@@ -34,7 +34,9 @@
                         console.log("dom: " , element);
                         // o seu element equivale ao document, ex:.
                         //Set form here
-                        $('a.add').relCopy(); 
+                        var removeLink = ' <a style="display: none;" class="remove" href="#" onclick="$(this).parent().slideUp(function(){ $(this).remove() }); return false">remove</a>';
+
+                        $('a.add').relCopy({append: removeLink}); 
                         var qtdNotas = localStorage.getItem('qtdnotas');
                         var i = 1;
                         while(i < qtdNotas){
@@ -42,8 +44,7 @@
                             document.getElementById('label-nota'+(i+1)).innerHTML = "Nota "+(i+1);
                             i++;
                         }
-                        document.getElementById('nota').id = "nota1";
-                        document.getElementById('peso').id = "peso1";
+                        localStorage.setItem('indexQtdNotas', i);
 
                     } 
                     
