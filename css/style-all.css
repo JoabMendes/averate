@@ -124,10 +124,3 @@ body, html {
 	list-style: none;
 }
 
-.resultado #aprovado{
-	display: none;
-}
-
-.resultado #reprovado{
-	display: none;
-}

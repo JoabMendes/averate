@@ -45,8 +45,30 @@
                             i++;
                         }
                         localStorage.setItem('indexQtdNotas', i);
-
                     } 
+
+                    if(id === 'displaycompleteresul'){
+                        console.log("dom: " , element);
+                        //listarnotas
+                        var i = 0;
+                        var allnotas = localStorage.getItem('allnotas').split(",");
+                        var allpesos = localStorage.getItem('allpesos').split(",");
+                        var insert = "";
+                        while(i < allnotas.length){
+                            insert += '<li>'+allnotas[i]+' &mdash; Peso '+allpesos[i]+'</li>';
+                            i++;
+                        }
+                        document.getElementById('ul-list-notas').innerHTML = insert;
+                        document.getElementById('list-poderada').innerHTML = 'M&eacute;dia Ponderada: '+localStorage.getItem('mediaPonderadaCompleta');
+                        document.getElementById('list-aritmetica').innerHTML = 'M&eacute;dia Aritm&eacute;tica: '+localStorage.getItem('mediaAritmeticaCompleta');
+
+                        if(localStorage.getItem('situacao') === 'true'){
+                            document.getElementById('situacao').innerHTML = '<img src="images/medal.png" alt="medal" style="vertical-align: middle; width: 45px; margin-right: 20px;">Situa&ccedil;&atilde;o: Aprovado.';
+                        }else{
+                            document.getElementById('situacao').innerHTML = '<img src="images/warning.png" alt="medal" style="vertical-align: middle; width: 50px; margin-right: 10px;">Situa&ccedil;&atilde;o: Reprova&ccedil;&atilde;o.';
+                        }
+                            
+                    }
                     
                 }
                 bb.init(config);

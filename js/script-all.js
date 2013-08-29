@@ -63,26 +63,53 @@ function isEmpty(array){
 	return false;
 }
 
-function clearStorage(){
-	var i = 1;
-	while(i <= 8){
-		localStorage.removeItem('nota'+i);
-		localStorage.removeItem('peso'+i);
+function mediaPonderadaCompleta(allnotas, allpesos){
+	var soma_mult = 0;
+	var soma_peso = 0;
+	var media = 0;
+	var i = 0;
+	while(i < allnotas.length){
+		soma_mult += allnotas[i] * allpesos[i];
+		soma_peso += allpesos[i];
 		i++;
+	}
+	return media = soma_mult / soma_peso;
+}
+
+function mediaAritmeticaCompleta(allnotas){
+	var soma = 0;
+	var media = 0;
+	var i = 0;
+	while(i < allnotas.length){
+		soma += allnotas[i];
+		i++;
+	}
+	return media = soma/ allnotas.length;
+}
+
+function situacaoCompleta(mediaPonderada, mediaAritmetica){
+	var minmedia = parseFloat(localStorage.getItem('minmedia'));
+	if(mediaPonderada >= minmedia || mediaAritmetica >= minmedia){
+		return 'true';
+	}else{
+		return 'false';
 	}
 }
 
 function normalCalc(allnotas, allpesos){
 	//storage setadas fazer calculo e print no index
-	var qtdnotas = localStorage.getItem('indexQtdNotas');
-	clearStorage();
-	var i = 1;
-	while(i <= qtdnotas){
-		localStorage.setItem('nota'+i, allnotas[i-1]);
-		localStorage.setItem('peso'+i, allpesos[i-1]);
-		i++;
-	}
+	localStorage.setItem('allnotas', allnotas);
+	localStorage.setItem('allpesos', allpesos);
+
+	var mediaPonderada = mediaPonderadaCompleta(allnotas, allpesos).toFixed(1);
+	var mediaAritmetica = mediaAritmeticaCompleta(allnotas).toFixed(1);
+	localStorage.setItem('mediaPonderadaCompleta', mediaPonderada);
+	localStorage.setItem('mediaAritmeticaCompleta', mediaAritmetica);
+	localStorage.setItem('situacao', situacaoCompleta(mediaPonderada, mediaAritmetica));
+	bb.pushScreen('displayresul.html', 'displaycompleteresul');
 }
+
+
 
 
 function pushScreenResult(){
@@ -90,11 +117,11 @@ function pushScreenResult(){
 	var i = 1;
 	var allnotas = new Array();
 	var allpesos = new Array();
-	allnotas[0] = document.getElementById('nota').value;
-	allpesos[0] = document.getElementById('peso').value;
+	allnotas[0] = parseFloat(document.getElementById('nota').value.replace(',','.'));
+	allpesos[0] = parseFloat(document.getElementById('peso').value.replace(',','.'));
 	while(i < qtdnotas){
-		allnotas[i] = document.getElementById('nota'+(i+1)).value;
-		allpesos[i] = document.getElementById('peso'+(i+1)).value;
+		allnotas[i] = parseFloat(document.getElementById('nota'+(i+1)).value.replace(',','.'));
+		allpesos[i] = parseFloat(document.getElementById('peso'+(i+1)).value.replace(',','.'));
 		i++;
 	}
 
