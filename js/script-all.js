@@ -52,6 +52,39 @@ function editForm(action){
 }
 
 
+function isEmpty(array){
+	var i = 0;
+	while(i < array.length){
+		if(array[i] === ""){
+			return true;
+		}
+		i++;
+	}
+	return false;
+}
+
+function clearStorage(){
+	var i = 1;
+	while(i <= 8){
+		localStorage.removeItem('nota'+i);
+		localStorage.removeItem('peso'+i);
+		i++;
+	}
+}
+
+function normalCalc(allnotas, allpesos){
+	//storage setadas fazer calculo e print no index
+	var qtdnotas = localStorage.getItem('indexQtdNotas');
+	clearStorage();
+	var i = 1;
+	while(i <= qtdnotas){
+		localStorage.setItem('nota'+i, allnotas[i-1]);
+		localStorage.setItem('peso'+i, allpesos[i-1]);
+		i++;
+	}
+}
+
+
 function pushScreenResult(){
 	var qtdnotas = localStorage.getItem('indexQtdNotas');
 	var i = 1;
@@ -66,22 +99,15 @@ function pushScreenResult(){
 	}
 
 	if(isEmpty(allnotas) || isEmpty(allpesos)){
-		//Criar algoritmo que completa tela com todos as notas calculo de média e situação
-	}else{
 		//Criar algoritmo que considera as notas faltando e o valor das notas necessárias 
 		//calculo de média parcial e situação
-		 
+		
+	}else{
+		normalCalc(allnotas, allpesos);
+		//Criar algoritmo que completa tela com todos as notas calculo de média e situação
 	}
-	//bb.pushScreen('displayresul.html', 'displayresul');
+	//bb.pushScreen('displayresul.html', 'displayresulnormal');
 }
 
-function isEmpty(array){
-	var i = 0;
-	while(i < array.length){
-		if(array[i] === ""){
-			return true;
-		}
-		i++;
-	}
-	return false;
-}
+
+
