@@ -54,6 +54,7 @@
                     } 
 
                     if(id === 'displaycompleteresul'){
+                        //Tela com o todas as incersões de notas
                         console.log("dom: " , element);
                         //listarnotas
                         var i = 0;
@@ -66,20 +67,62 @@
                         }
                         document.getElementById('ul-list-notas').innerHTML = insert;
 
+                        //Medias
                         document.getElementById('list-poderada').innerHTML = 'M&eacute;dia Ponderada: '+localStorage.getItem('mediaPonderadaCompleta');
                         document.getElementById('list-aritmetica').innerHTML = 'M&eacute;dia Aritm&eacute;tica: '+localStorage.getItem('mediaAritmeticaCompleta');
 
+                        //Situação
                         if(localStorage.getItem('situacao') === 'true'){
                             document.getElementById('situacao').innerHTML = '<img src="images/medal.png" alt="medal" style="vertical-align: middle; width: 45px; margin-right: 20px;">Situa&ccedil;&atilde;o: Aprovado.';
                         }else{
-                            document.getElementById('situacao').innerHTML = '<img src="images/warning.png" alt="medal" style="vertical-align: middle; width: 50px; margin-right: 10px;">Situa&ccedil;&atilde;o: Reprova&ccedil;&atilde;o.';
+                            document.getElementById('situacao').innerHTML = '<img src="images/warning.png" alt="warning" style="vertical-align: middle; width: 50px; margin-right: 10px;">Situa&ccedil;&atilde;o: Reprova&ccedil;&atilde;o.';
                         }
                             
+                    }
+
+                    if(id === 'displayparcialresul'){
+                        //Tela com as inserções de notas parciais.
+                        console.log("dom: " , element);
+                        var i = 0;
+                        var allnotas = localStorage.getItem('allnotas').split(",");
+                        var allpesos = localStorage.getItem('allpesos').split(",");
+                        var insert = "";
+                        while(i < allnotas.length){
+                            if(isNaN(allnotas[i]) == false){
+                                insert += '<li>'+parseFloat(allnotas[i]).toFixed(1)+' &mdash; Peso '+allpesos[i]+'</li>';
+                            }
+                            i++;
+                        }
+
+                        insert+= '<li style="list-style: none; margin-left: -50px; padding: 10px;"><img src="images/flag.png" alt="medal" style="vertical-align: middle; width: 50px; margin-right: 10px;">Notas necess&aacute;rias:</li>';
+
+                        var arrayNesc = localStorage.getItem('NotasNecessariasInfo').split(",");
+                        var notasNec = arrayNesc[0];
+                        var notasres = parseInt(arrayNesc[1]);
+                        var situacao = arrayNesc[2];
+                        i = 0;
+                        while(i < notasres){
+                            insert += '<li>'+parseFloat(notasNec).toFixed(1)+'</li>';
+                            i++;
+                        }
+
+                        document.getElementById('ul-list-notas').innerHTML = insert;
+
+                        //Media parciais
+                        document.getElementById('list-poderada').innerHTML = 'M&eacute;dia Ponderada Parcial: '+localStorage.getItem('mediaPonderadaParcial');
+                        document.getElementById('list-aritmetica').innerHTML = 'M&eacute;dia Aritm&eacute;tica Parcial: '+localStorage.getItem('mediaAritmeticaParcial');
+
+                        if(situacao === "cursando"){
+                            document.getElementById('situacao').innerHTML = '<img src="images/umbrella.png" alt="umbrella" style="vertical-align: middle; width: 50px; margin-right: 10px;">Situa&ccedil;&atilde;o:<br/> Cursando sem risco de reprova&ccedil;&atilde;o.';
+                        }else{
+                            document.getElementById('situacao').innerHTML = '<img src="images/warning.png" alt="warning" style="vertical-align: middle; width: 50px; margin-right: 10px;">Situa&ccedil;&atilde;o:<br/> Em Reprova&ccedil;&atilde;o.';
+                        }
+
                     }
                     
                 }
                 bb.init(config);
-                bb.pushScreen("displayform.html", "displayform");   
+                bb.pushScreen("main.html", "main");   
                 
             },false);
    

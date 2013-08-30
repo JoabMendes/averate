@@ -41,14 +41,14 @@ function editForm(action){
 		$(idrmv).trigger('click');
 		localStorage.setItem('indexQtdNotas', parseInt(localStorage.getItem('indexQtdNotas'))-1);
 		localStorage.setItem('qtdnotas', localStorage.getItem('indexQtdNotas'));
+	}else if(action === '-' && parseInt(localStorage.getItem('indexQtdNotas')) == 2){
+		blackberry.ui.dialog.standardAskAsync("O limite m&iacute;nimo de notas &eacute; 2.", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
 	}
 
 	if(action === '+' && parseInt(localStorage.getItem('indexQtdNotas')) == 8){
 		blackberry.ui.dialog.standardAskAsync("O limite m&aacute;ximo de notas &eacute; 8.", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
 	}
-	if(action === '-' && parseInt(localStorage.getItem('indexQtdNotas')) == 2){
-		blackberry.ui.dialog.standardAskAsync("O limite m&iacute;nimo de notas &eacute; 2.", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
-	}
+	
 }
 
 
@@ -118,7 +118,7 @@ function normalCalc(allnotas, allpesos){
 	localStorage.setItem('mediaPonderadaCompleta', mediaPonderada);
 	localStorage.setItem('mediaAritmeticaCompleta', mediaAritmetica);
 	localStorage.setItem('situacao', situacaoCompleta(mediaPonderada, mediaAritmetica));
-	//bb.pushScreen('displayresul.html', 'displaycompleteresul');
+	bb.pushScreen('displayresul.html', 'displaycompleteresul');
 }
 
 
@@ -174,22 +174,25 @@ function notasNecessarias(allnotas){
 	var info = new Array();
 	info[0] = notaN/numero_de_notas_vazias;
 	info[1] = numero_de_notas_vazias;
+	info[2] = "cursando";
+	if(info[0] > 10){
+		info[2] = "reprovado";
+	}
 
 	return info;
 }
 
 
 function parcialCalc(allnotas, allpesos){
-	//media parcial arimetica
-	//media parcial ponderada
 	localStorage.setItem('allnotas', allnotas);
 	localStorage.setItem('allpesos', allpesos);
-	
+
 	var mediaPonderada = mediaPonderadaParcial(allnotas, allpesos).toFixed(1);
 	var mediaAritmetica = mediaAritmeticaParcial(allnotas).toFixed(1);
 	localStorage.setItem('mediaPonderadaParcial', mediaPonderada);
 	localStorage.setItem('mediaAritmeticaParcial', mediaAritmetica); 
 	localStorage.setItem('NotasNecessariasInfo', notasNecessarias(allnotas));
+	bb.pushScreen('displayresul.html', 'displayparcialresul');
 }
 
 
@@ -203,6 +206,8 @@ function pushScreenResult(){
 	allpesos[0] = parseFloat(document.getElementById('peso').value.replace(',','.'));
 	if(isNaN(allnotas[0])){
 		blackberry.ui.dialog.standardAskAsync("Insira no m&iacute;nimo a primeira nota.", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
+	}else if(allnotas[0] > 10){
+		blackberry.ui.dialog.standardAskAsync("Por favor, insira as notas em formato decimal: 0.0", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
 	}else{
 		while(i < qtdnotas){
 			allnotas[i] = parseFloat(document.getElementById('nota'+(i+1)).value.replace(',','.'));

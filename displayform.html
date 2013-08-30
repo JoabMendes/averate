@@ -43,8 +43,11 @@
   <!--<div onclick="invokeFilePicker();" id="btnShare" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/share.png">Share</div>-->
 
   <!-- button overflow menun -->
-  <div onclick="toast(this.id);" id="btnA" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/button2.png">Botao 1</div>
-  <div onclick="toast(this.id);" id="btnB" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/button2.png">Botao 2</div>
+  <div onclick="bb.pushScreen('displayform.html', 'displayform');"  id="btnRefresh" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/spinner.png">Atualizar</div>
+
+  <!-- Criar tela de ajuda -->
+  <div onclick="toast(this.id);" id="btnHelp" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/help.png">Ajuda</div>
+
   <div onclick="bbm.inviteToDownload();" id="btnB" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/bbm.png">Convidar para Download</div>
 </div>
 
