@@ -30,7 +30,7 @@ function pushScreenForm(minmedia, qtdnotas){
 
 function editForm(action){
 
-	if(action === '+' && parseInt(localStorage.getItem('indexQtdNotas')) < 9){
+	if(action === '+' && parseInt(localStorage.getItem('indexQtdNotas')) < 8){
 		$('a.add').trigger('click');
 		localStorage.setItem('indexQtdNotas', parseInt(localStorage.getItem('indexQtdNotas'))+1);
 		localStorage.setItem('qtdnotas', localStorage.getItem('indexQtdNotas'));
@@ -55,13 +55,25 @@ function editForm(action){
 function isEmpty(array){
 	var i = 0;
 	while(i < array.length){
-		if(array[i] === ""){
+		if(isNaN(array[i])){
 			return true;
 		}
 		i++;
 	}
 	return false;
 }
+
+function setDefaultPeso(array){
+	var i = 0;
+	while(i < array.length){
+		if(isNaN(array[i])){
+			array[i] = 1.0;
+		}
+		i++;
+	}
+	return array;
+}
+
 
 function mediaPonderadaCompleta(allnotas, allpesos){
 	var soma_mult = 0;
@@ -73,7 +85,7 @@ function mediaPonderadaCompleta(allnotas, allpesos){
 		soma_peso += allpesos[i];
 		i++;
 	}
-	return media = soma_mult / soma_peso;
+	return media = soma_mult/soma_peso;
 }
 
 function mediaAritmeticaCompleta(allnotas){
@@ -84,7 +96,7 @@ function mediaAritmeticaCompleta(allnotas){
 		soma += allnotas[i];
 		i++;
 	}
-	return media = soma/ allnotas.length;
+	return media = soma/allnotas.length;
 }
 
 function situacaoCompleta(mediaPonderada, mediaAritmetica){
@@ -106,9 +118,79 @@ function normalCalc(allnotas, allpesos){
 	localStorage.setItem('mediaPonderadaCompleta', mediaPonderada);
 	localStorage.setItem('mediaAritmeticaCompleta', mediaAritmetica);
 	localStorage.setItem('situacao', situacaoCompleta(mediaPonderada, mediaAritmetica));
-	bb.pushScreen('displayresul.html', 'displaycompleteresul');
+	//bb.pushScreen('displayresul.html', 'displaycompleteresul');
 }
 
+
+function mediaPonderadaParcial(allnotas, allpesos){
+
+	var soma_mult = 0;
+	var soma_peso = 0;
+	var media = 0;
+	var i = 0;
+	while(i < allnotas.length){
+		if(isNaN(allnotas[i]) == false){
+			soma_mult += allnotas[i] * allpesos[i];
+			soma_peso += allpesos[i];
+		}
+		i++;
+	}
+	return media = soma_mult/soma_peso;
+}
+
+function mediaAritmeticaParcial(allnotas){
+	var soma = 0;
+	var media = 0;
+	var aux = 0;
+	var i = 0;
+	while(i < allnotas.length){
+		if(isNaN(allnotas[i])  == false){
+			soma += allnotas[i];
+			aux++;
+		}
+		i++;
+	}
+	return media = soma/aux;
+}
+
+function notasNecessarias(allnotas){
+
+	var numero_de_notas_vazias = 0;
+	var soma_das_notas = 0;
+	var numero_de_notas_validas = 0;
+	var i = 0;
+	while(i < allnotas.length){
+		if(isNaN(allnotas[i])){
+			numero_de_notas_vazias++;
+		}else{
+			soma_das_notas += allnotas[i];
+			numero_de_notas_validas++;
+		}
+		i++;
+	}
+
+	var minmedia = localStorage.getItem('minmedia');
+	var notaN = (minmedia - soma_das_notas/allnotas.length)*allnotas.length;
+	var info = new Array();
+	info[0] = notaN/numero_de_notas_vazias;
+	info[1] = numero_de_notas_vazias;
+
+	return info;
+}
+
+
+function parcialCalc(allnotas, allpesos){
+	//media parcial arimetica
+	//media parcial ponderada
+	localStorage.setItem('allnotas', allnotas);
+	localStorage.setItem('allpesos', allpesos);
+	
+	var mediaPonderada = mediaPonderadaParcial(allnotas, allpesos).toFixed(1);
+	var mediaAritmetica = mediaAritmeticaParcial(allnotas).toFixed(1);
+	localStorage.setItem('mediaPonderadaParcial', mediaPonderada);
+	localStorage.setItem('mediaAritmeticaParcial', mediaAritmetica); 
+	localStorage.setItem('NotasNecessariasInfo', notasNecessarias(allnotas));
+}
 
 
 
@@ -119,21 +201,32 @@ function pushScreenResult(){
 	var allpesos = new Array();
 	allnotas[0] = parseFloat(document.getElementById('nota').value.replace(',','.'));
 	allpesos[0] = parseFloat(document.getElementById('peso').value.replace(',','.'));
-	while(i < qtdnotas){
-		allnotas[i] = parseFloat(document.getElementById('nota'+(i+1)).value.replace(',','.'));
-		allpesos[i] = parseFloat(document.getElementById('peso'+(i+1)).value.replace(',','.'));
-		i++;
+	if(isNaN(allnotas[0])){
+		blackberry.ui.dialog.standardAskAsync("Insira no m&iacute;nimo a primeira nota.", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
+	}else{
+		while(i < qtdnotas){
+			allnotas[i] = parseFloat(document.getElementById('nota'+(i+1)).value.replace(',','.'));
+			allpesos[i] = parseFloat(document.getElementById('peso'+(i+1)).value.replace(',','.'));
+			i++;
+		}
+
+		if(isEmpty(allnotas)){
+			//Criar algoritmo que considera as notas faltando e o valor das notas necessárias 
+			//calculo de média parcial e situação
+			allpesos = setDefaultPeso(allpesos);
+			parcialCalc(allnotas, allpesos);
+			
+		}else{
+			if(isEmpty(allpesos)){
+				allpesos = setDefaultPeso(allpesos);
+				normalCalc(allnotas, allpesos);
+			}else{
+				normalCalc(allnotas, allpesos);
+			}
+		}
+		//bb.pushScreen('displayresul.html', 'displayresulnormal');		
 	}
 
-	if(isEmpty(allnotas) || isEmpty(allpesos)){
-		//Criar algoritmo que considera as notas faltando e o valor das notas necessárias 
-		//calculo de média parcial e situação
-		
-	}else{
-		normalCalc(allnotas, allpesos);
-		//Criar algoritmo que completa tela com todos as notas calculo de média e situação
-	}
-	//bb.pushScreen('displayresul.html', 'displayresulnormal');
 }
 
 

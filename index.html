@@ -15,6 +15,12 @@
         <!-- sample code -->
         <script src="js/bfb_bootstrap.js"></script>
 
+        <!-- JQuery -->
+        <script type="text/javascript" src="js/jquery.js"></script>
+
+        <!-- My code -->
+        <script type="text/javascript" src="js/script-all.js"></script>
+
 
         <!-- initialization -->
         <script>
@@ -55,10 +61,11 @@
                         var allpesos = localStorage.getItem('allpesos').split(",");
                         var insert = "";
                         while(i < allnotas.length){
-                            insert += '<li>'+allnotas[i]+' &mdash; Peso '+allpesos[i]+'</li>';
+                            insert += '<li>'+parseFloat(allnotas[i]).toFixed(1)+' &mdash; Peso '+allpesos[i]+'</li>';
                             i++;
                         }
                         document.getElementById('ul-list-notas').innerHTML = insert;
+
                         document.getElementById('list-poderada').innerHTML = 'M&eacute;dia Ponderada: '+localStorage.getItem('mediaPonderadaCompleta');
                         document.getElementById('list-aritmetica').innerHTML = 'M&eacute;dia Aritm&eacute;tica: '+localStorage.getItem('mediaAritmeticaCompleta');
 
@@ -72,13 +79,11 @@
                     
                 }
                 bb.init(config);
-                bb.pushScreen("main.html", "main");   
+                bb.pushScreen("displayform.html", "displayform");   
                 
             },false);
    
         </script>
-        <script src="js/script-all.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/reCopy.js"></script>
         <link href="css/style-all.css" rel="stylesheet" media="screen"> 
     </head>
