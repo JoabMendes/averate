@@ -88,10 +88,12 @@ var bbm = {
 
 	// invite a contact to download your app via bbm
 	inviteToDownload: function() {
+		console.log("try to invite");
 		blackberry.bbm.platform.users.inviteToDownload();
 	},
 
 	sendMensagemBBM: function () {
+		console.log("try to chat");
 		var message = $("#resul-screen").text();
 		blackberry.invoke.invoke({
 				target: 'sys.bbm.sharehandler',
