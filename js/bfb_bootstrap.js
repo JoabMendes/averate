@@ -99,7 +99,7 @@ var bbm = {
 				data: message+"\n\nvia averate app.",
 				mimeType: 'text/plain'
 			});
-	}	
+	}
 
 };
 
