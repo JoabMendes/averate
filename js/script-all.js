@@ -235,8 +235,9 @@ function pushScreenResult(){
 }
 
 
-function testeMensagem(){
-	
+function sendMensagemBBM(){
+	var menssage = $("#resul-screen").text();
+	blackberry.bbm.platform.users.startBBMChat(function() {}, menssage+"\n\nvia averate app.");
 }
 
 

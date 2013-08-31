@@ -62,7 +62,7 @@
                         var allpesos = localStorage.getItem('allpesos').split(",");
                         var insert = "";
                         while(i < allnotas.length){
-                            insert += '<li>'+parseFloat(allnotas[i]).toFixed(1)+' &mdash; Peso '+allpesos[i]+'</li>';
+                            insert += '<li id="nota'+i+'">'+parseFloat(allnotas[i]).toFixed(1)+' &mdash; Peso '+allpesos[i]+';</li>';
                             i++;
                         }
                         document.getElementById('ul-list-notas').innerHTML = insert;
@@ -89,7 +89,7 @@
                         var insert = "";
                         while(i < allnotas.length){
                             if(isNaN(allnotas[i]) == false){
-                                insert += '<li>'+parseFloat(allnotas[i]).toFixed(1)+' &mdash; Peso '+allpesos[i]+'</li>';
+                                insert += '<li>'+parseFloat(allnotas[i]).toFixed(1)+' &mdash; Peso '+allpesos[i]+';</li>';
                             }
                             i++;
                         }
@@ -102,7 +102,7 @@
                         var situacao = arrayNesc[2];
                         i = 0;
                         while(i < notasres){
-                            insert += '<li>'+parseFloat(notasNec).toFixed(1)+'</li>';
+                            insert += '<li>'+parseFloat(notasNec).toFixed(1)+';</li>';
                             i++;
                         }
 

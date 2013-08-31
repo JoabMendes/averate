@@ -9,7 +9,7 @@
     <author rim:copyright="2013"
             href="http://twitter.com/JhoabMendez"
             email = "joab.mendes.r2d2@gmail.com">Joab Mendesa</author>
-    <description>O aplicativo gerencia notas escolares e faz cálculo de medias arimeticas/ponderadas e necessidade relativa de pontos</description>>
+    <description>O aplicativo gerencia notas escolares e faz cálculo de médias ariméticas/ponderadas e necessidade relativa das próximas notas de avaliações de um semestre, bimestre ou outro.</description>>
     <access uri="*" subdomains="true" />
 
     <icon src="images/icon.png"/>
