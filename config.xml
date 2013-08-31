@@ -17,7 +17,7 @@
     <rim:splash src="images/splash-720x720.png"/>    
     
     <feature id="blackberry.app">
-      <param name="orientation" value="portrait" />
+      <param name="orientation" value="auto" />
     </feature>
 
     <feature id="blackberry.ui.toast" />

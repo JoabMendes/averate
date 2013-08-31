@@ -11,15 +11,15 @@ function pushScreenForm(minmedia, qtdnotas){
 		bb.pushScreen('displayform.html', 'displayform');
 	}else{
 		if(minmedia_value === '' || qtdnotas_value === '' ){
-			blackberry.ui.dialog.standardAskAsync("Insira todas as informa&ccedil;&otilde;es por favor.", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
+			blackberry.ui.dialog.standardAskAsync("Insira todas as informa&ccedil;&otilde;es por favor.", blackberry.ui.dialog.D_OK, null, {title : "Atenção"});
 		}else if(qtdnotas_value > 8 && minmedia_value <= 0){
-			blackberry.ui.dialog.standardAskAsync("- Insira uma m&eacute;dia positiva <br/>- O limite m&aacute;ximo de notas &eacute; 8.", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
+			blackberry.ui.dialog.standardAskAsync("- Insira uma m&eacute;dia positiva <br/>- O limite m&aacute;ximo de notas &eacute; 8.", blackberry.ui.dialog.D_OK, null, {title : "Atenção"});
 		}else if(qtdnotas_value > 8){
-			blackberry.ui.dialog.standardAskAsync("O limite m&aacute;ximo de notas &eacute; 8.", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
+			blackberry.ui.dialog.standardAskAsync("O limite m&aacute;ximo de notas &eacute; 8.", blackberry.ui.dialog.D_OK, null, {title : "Atenção"});
 		}else if(qtdnotas_value < 2){
-			blackberry.ui.dialog.standardAskAsync("O limite m&iacute;nimo de notas &eacute; 2.", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
+			blackberry.ui.dialog.standardAskAsync("O limite m&iacute;nimo de notas &eacute; 2.", blackberry.ui.dialog.D_OK, null, {title : "Atenção"});
 		}else if(minmedia_value <= 0){
-			blackberry.ui.dialog.standardAskAsync("Insira uma m&eacute;dia positiva.", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
+			blackberry.ui.dialog.standardAskAsync("Insira uma m&eacute;dia positiva.", blackberry.ui.dialog.D_OK, null, {title : "Atenção"});
 		}
 		
 	}
@@ -42,11 +42,11 @@ function editForm(action){
 		localStorage.setItem('indexQtdNotas', parseInt(localStorage.getItem('indexQtdNotas'))-1);
 		localStorage.setItem('qtdnotas', localStorage.getItem('indexQtdNotas'));
 	}else if(action === '-' && parseInt(localStorage.getItem('indexQtdNotas')) == 2){
-		blackberry.ui.dialog.standardAskAsync("O limite m&iacute;nimo de notas &eacute; 2.", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
+		blackberry.ui.dialog.standardAskAsync("O limite m&iacute;nimo de notas &eacute; 2.", blackberry.ui.dialog.D_OK, null, {title : "Atenção"});
 	}
 
 	if(action === '+' && parseInt(localStorage.getItem('indexQtdNotas')) == 8){
-		blackberry.ui.dialog.standardAskAsync("O limite m&aacute;ximo de notas &eacute; 8.", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
+		blackberry.ui.dialog.standardAskAsync("O limite m&aacute;ximo de notas &eacute; 8.", blackberry.ui.dialog.D_OK, null, {title : "Atenção"});
 	}
 	
 }
@@ -205,9 +205,9 @@ function pushScreenResult(){
 	allnotas[0] = parseFloat(document.getElementById('nota').value.replace(',','.'));
 	allpesos[0] = parseFloat(document.getElementById('peso').value.replace(',','.'));
 	if(isNaN(allnotas[0])){
-		blackberry.ui.dialog.standardAskAsync("Insira no m&iacute;nimo a primeira nota.", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
+		blackberry.ui.dialog.standardAskAsync("Insira no m&iacute;nimo a primeira nota.", blackberry.ui.dialog.D_OK, null, {title : "Atenção"});
 	}else if(allnotas[0] > 10){
-		blackberry.ui.dialog.standardAskAsync("Por favor, insira as notas em formato decimal: 0.0", blackberry.ui.dialog.D_OK, null, {title : "Aten&ccedil;&atilde;o"});
+		blackberry.ui.dialog.standardAskAsync("Por favor, insira as notas em formato decimal: 0.0", blackberry.ui.dialog.D_OK, null, {title : "Atenção"});
 	}else{
 		while(i < qtdnotas){
 			allnotas[i] = parseFloat(document.getElementById('nota'+(i+1)).value.replace(',','.'));
