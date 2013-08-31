@@ -206,12 +206,20 @@ function pushScreenResult(){
 	allpesos[0] = parseFloat(document.getElementById('peso').value.replace(',','.'));
 	if(isNaN(allnotas[0])){
 		blackberry.ui.dialog.standardAskAsync("Insira no m&iacute;nimo a primeira nota.", blackberry.ui.dialog.D_OK, null, {title : "Atenção"});
-	}else if(allnotas[0] > 10){
-		blackberry.ui.dialog.standardAskAsync("Por favor, insira as notas em formato decimal: 0.0", blackberry.ui.dialog.D_OK, null, {title : "Atenção"});
 	}else{
 		while(i < qtdnotas){
 			allnotas[i] = parseFloat(document.getElementById('nota'+(i+1)).value.replace(',','.'));
 			allpesos[i] = parseFloat(document.getElementById('peso'+(i+1)).value.replace(',','.'));
+			i++;
+		}
+
+		i = 0;
+		while(i < qtdnotas){
+			if(allnotas[i] > 10 && isNaN(allnotas[i]) == false){
+				allnotas[i] = allnotas[i]/10;
+			}else if(if(allnotas[i] > 100 && isNaN(allnotas[i]) == false){
+				allnotas[i] = allnotas[i]/100;
+			}
 			i++;
 		}
 
