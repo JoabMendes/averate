@@ -120,6 +120,14 @@ body, html {
 	list-style-image: url(../images/arrow.png);
 }
 
+#list-notas ul ul{
+	list-style: square;
+}
+
+#list-notas ul ul ul{
+	list-style: disc;
+}
+
 #list-notas .resultado{
 	list-style: none;
 }

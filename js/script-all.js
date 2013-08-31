@@ -235,4 +235,9 @@ function pushScreenResult(){
 }
 
 
+function testeMensagem(){
+	
+}
+
+
 

@@ -14,6 +14,11 @@
 
 <div style="background: url(images/background.png);" data-bb-type="screen" data-bb-effect="fade"  data-bb-scroll-effect="off" class="allscreen" data-bb-indicator="true" id="displayresul">
 
+<div data-bb-type="menu">
+  <div data-bb-type="menu-item" onclick="bb.pushScreen('help.html', 'help');" data-bb-img="images/help.png" data-bb-pin="left">Ajuda</div>
+</div>
+
+
 <!--TELA PRINCIPAL-->
 <div id="resul-screen">
     <div id="navbar-title">
@@ -44,16 +49,9 @@
 <!-- FIM DA TELA PRINCIPAL-->
 
 
+<!-- action bar bbm.updateMessage();-->
 <div data-bb-type="action-bar" data-bb-back-caption="Voltar">
-
-   <!-- buttons 
-   <div onclick="bb.popScreen();" id="btnBack" data-bb-type="action" data-bb-style="button" data-bb-img="images/ic_previous.png">Voltar</div>
-  <!--<div onclick="invokeFilePicker();" id="btnShare" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/share.png">Share</div>-->
-
-  <!-- button overflow menun 
-  <div onclick="toast(this.id);" id="btnA" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/button2.png">Botao 1</div>
-  <div onclick="toast(this.id);" id="btnB" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/button2.png">Botao 2</div>
-  <div onclick="bbm.inviteToDownload();" id="btnB" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/bbm.png">Convidar para Download</div>-->
+   <div onclick="testeMensagem();" id="btnBBM" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/bbm.png">Enviar via BBM</div>
 </div>
 
 </div>

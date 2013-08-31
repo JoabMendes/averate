@@ -14,6 +14,10 @@
 
 <div style="background: url(images/background.png);" data-bb-type="screen" data-bb-effect="slide-left"  data-bb-scroll-effect="off" class="allscreen" id="displayform">
 
+<div data-bb-type="menu">
+  <div data-bb-type="menu-item" onclick="bb.pushScreen('help.html', 'help');" data-bb-img="images/help.png" data-bb-pin="left">Ajuda</div>
+</div>
+
 <!--TELA PRINCIPAL-->
 <div id="form-screen">
     <div id="navbar-title">
@@ -35,19 +39,14 @@
 
 <div data-bb-type="action-bar" data-bb-back-caption="Voltar">
 
-   <!-- buttons 
-   <div onclick="bb.popScreen();" id="btnBack" data-bb-type="action" data-bb-style="button" data-bb-img="images/ic_previous.png">Voltar</div>-->
+   <!-- buttons -->
   <div onclick="editForm('-');"  id="btnBBM" data-bb-type="action" data-bb-style="button" data-bb-img="images/ic_del.png">Del Nota</div>
   <div onclick="editForm('+');"  id="btnBBM" data-bb-type="action" data-bb-style="button" data-bb-img="images/ic_add.png">Add Nota</div>
  
-  <!--<div onclick="invokeFilePicker();" id="btnShare" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/share.png">Share</div>-->
 
   <!-- button overflow menun -->
   <div onclick="bb.pushScreen('displayform.html', 'displayform');"  id="btnRefresh" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/spinner.png">Atualizar</div>
-
-  <!-- Criar tela de ajuda -->
-  <div onclick="toast(this.id);" id="btnHelp" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/help.png">Ajuda</div>
-
+  <div onclick="bb.pushScreen('help.html', 'help');"   id="btnHelp" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/help.png">Ajuda</div>
   <div onclick="bbm.inviteToDownload();" id="btnB" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/bbm.png">Convidar para Download</div>
 </div>
 
