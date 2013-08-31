@@ -89,7 +89,18 @@ var bbm = {
 	// invite a contact to download your app via bbm
 	inviteToDownload: function() {
 		blackberry.bbm.platform.users.inviteToDownload();
-	}
+	},
+
+	sendMensagemBBM: function () {
+		var message = $("#resul-screen").text();
+		blackberry.invoke.invoke({
+				target: 'sys.bbm.sharehandler',
+				action: 'bb.action.SHARE',
+				data: message+"\n\nvia averate app.",
+				mimeType: 'text/plain'
+			});
+	}	
+
 };
 
 
