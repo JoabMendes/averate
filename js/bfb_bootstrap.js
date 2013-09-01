@@ -88,17 +88,11 @@ var bbm = {
 	// invite a contact to download your app via bbm
 	inviteToDownload: function() {
 		blackberry.bbm.platform.users.inviteToDownload();
-	},
+	}, 
 
-	sendMessageBBM: function () {
-		var message = $("#resul-screen").text();
-		message += "\n\nvia averate app.";
-		blackberry.invoke.invoke({
-				target: 'sys.bbm.sharehandler',
-				action: 'bb.action.SHARE',
-				data: message,
-				mimeType: 'text/plain'
-			});
+	setPMW: function() {
+		var situacao = $("#situacao").text();
+		blackberry.bbm.platform.self.setPersonalMessage("Fiz um calculo de media via 'averate' app: " + situacao);
 	}
 
 };
