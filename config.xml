@@ -26,8 +26,6 @@
     <feature id="blackberry.invoke.card" />
     <feature id="blackberry.ui.cover" />
     <feature id="blackberry.ui.dialog" />
-    <feature id="blackberry.app.event"/>
-    <feature id="blackberry.system.event" />
     <feature id="blackberry.system" />
     
 

@@ -3,7 +3,12 @@
 
 
 function pushScreenForm(minmedia, qtdnotas){
-	var minmedia_value = parseInt(document.getElementById(minmedia).value);
+	var minmedia_value = parseFloat(document.getElementById(minmedia).value);
+	if(minmedia_value > 10 && isNaN(minmedia_value) == false){
+		minmedia_value = minmedia_value/10.0;
+	}else if(minmedia_value > 100 && isNaN(minmedia_value) == false){
+		minmedia_value = minmedia_value/100.0;
+	}
 	var qtdnotas_value = parseInt(document.getElementById(qtdnotas).value);
 	if(minmedia_value > 0 && qtdnotas_value > 1 && qtdnotas_value < 9){
 		localStorage.setItem('minmedia', minmedia_value);
@@ -216,9 +221,9 @@ function pushScreenResult(){
 		i = 0;
 		while(i < qtdnotas){
 			if(allnotas[i] > 10 && isNaN(allnotas[i]) == false){
-				allnotas[i] = allnotas[i]/10;
+				allnotas[i] = allnotas[i]/10.0;
 			}else if(allnotas[i] > 100 && isNaN(allnotas[i]) == false){
-				allnotas[i] = allnotas[i]/100;
+				allnotas[i] = allnotas[i]/100.0;
 			}
 			i++;
 		}

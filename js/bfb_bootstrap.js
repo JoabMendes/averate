@@ -23,8 +23,8 @@ function initApp() {
 
 // setup window covers, and register with bbm platform
 function welcome() {
-	// show a welcome message
-	toast("Welcome to the BFB Sample!");
+	// register with bbm
+	bbm.register();
 
 	// setup the window cover (displayed when app is minimized)
 	blackberry.ui.cover.setContent(blackberry.ui.cover.TYPE_IMAGE, {
@@ -32,8 +32,7 @@ function welcome() {
 	});
 	blackberry.ui.cover.updateCover();
 
-	// register with bbm
-	bbm.register();
+	
 }
 
 
@@ -57,7 +56,7 @@ var bbm = {
 
 			if (status === 'unregistered') {
 				blackberry.bbm.platform.register({
-					uuid: '5b54bb3a-ab66-11e2-a242-f23c91aec05e'
+					uuid: '33490f91-ad95-4ba9-82c4-33f6ad69fbbc'
 				});
 
 			} else if (status === 'allowed') {
@@ -88,17 +87,16 @@ var bbm = {
 
 	// invite a contact to download your app via bbm
 	inviteToDownload: function() {
-		console.log("try to invite");
 		blackberry.bbm.platform.users.inviteToDownload();
 	},
 
-	sendMensagemBBM: function () {
-		console.log("try to chat");
+	sendMessageBBM: function () {
 		var message = $("#resul-screen").text();
+		message += "\n\nvia averate app.";
 		blackberry.invoke.invoke({
 				target: 'sys.bbm.sharehandler',
-				action: 'bb.action.SHARE',
-				data: message+"\n\nvia averate app.",
+				action: 'bb.action.BBMCHAT',
+				data: message,
 				mimeType: 'text/plain'
 			});
 	}

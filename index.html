@@ -37,6 +37,9 @@
                     console.log("screen: " , element)
                 };
                 config.ondomready = function(element, id, params) {
+                    if (id === 'main') {
+                            welcome();
+                    }
                     if (id === 'displayform') {
                         console.log("dom: " , element);
                         // o seu element equivale ao document, ex:.
