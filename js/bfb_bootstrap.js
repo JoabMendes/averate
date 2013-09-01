@@ -95,7 +95,7 @@ var bbm = {
 		message += "\n\nvia averate app.";
 		blackberry.invoke.invoke({
 				target: 'sys.bbm.sharehandler',
-				action: 'bb.action.BBMCHAT',
+				action: 'bb.action.SHARE',
 				data: message,
 				mimeType: 'text/plain'
 			});
