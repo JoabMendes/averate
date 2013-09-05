@@ -15,7 +15,8 @@
 <div style="background: url(images/background.png);" data-bb-type="screen" data-bb-effect="fade"  data-bb-scroll-effect="off" class="allscreen" data-bb-indicator="true" id="displayresul">
 
 <div data-bb-type="menu">
-  <div data-bb-type="menu-item" onclick="bb.pushScreen('help.html', 'help');" data-bb-img="images/help.png" data-bb-pin="left">Ajuda</div>
+  <div data-bb-type="menu-item" data-bb-pin="right" onclick="bb.pushScreen('help.html', 'help');" data-bb-img="images/help.png">Ajuda</div>
+
 </div>
 
 
@@ -51,7 +52,8 @@
 
 <!-- action bar bbm.updateMessage();-->
 <div data-bb-type="action-bar" data-bb-back-caption="Voltar">
-   <div onclick="bbm.setPMW();" id="btnBBM" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/bbm.png">Enviar via BBM</div>
+   <div onclick="bbm.setPMW();" id="btnBBM" data-bb-type="action" data-bb-style="button" data-bb-img="images/icons/forward_as_bbm.png">Enviar via BBM</div>
+   <div onclick="bb.pushScreen('main.html','backhome');" id="btnB" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/home.png">Início</div>
    <div onclick="bbm.inviteToDownload();" id="btnB" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/bbm.png">Convidar para Download</div>
 </div>
 

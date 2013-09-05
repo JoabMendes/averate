@@ -524,7 +524,7 @@ body, html {
 	border-top: 5px solid transparent;
 	text-align: center;
 	cursor: pointer;
-	float: left;
+	float: right !important;
 	height: 88px;	
 }
 
