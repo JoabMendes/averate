@@ -2,7 +2,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:rim="http://www.blackberry.com/ns/widgets"
-        version="1.0.0"
+        version="1.0.3"
         id="bfb2">
     <name>averate</name> 
     <content src="local:///index.html" />
